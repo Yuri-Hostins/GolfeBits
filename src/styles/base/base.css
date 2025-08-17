@@ -1,0 +1,49 @@
+:root {
+
+  --branco: #fff;
+
+  --bg: #0B3D2E;
+  --card: #FFFFFF;
+  --text: #0b1f18;
+  --accent: #17A673;
+  --muted: #EAF5F0;
+  --color-link: #0b5d45;
+  --sobre-bg: #f6fbf8;
+
+  --ink-800: #2f3e4a;
+  --ink-600: #536977;
+  --ink-400: #7c93a0;
+  --sky-50: #eef7ff;
+  --mint-500: #54c5b3;
+  --btn-ink: #526b7c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* utilitário de container padrão do site */
+.gb-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.gb-section {
+  background: #f6fbf8;
+  padding: 40px 0;
+}
+
+.gb-section-alt {
+  background: #ffffff;
+}

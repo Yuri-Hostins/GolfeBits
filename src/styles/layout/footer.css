@@ -1,0 +1,78 @@
+/* ===== FOOTER estilo “barra dupla” ===== */
+:root{
+  --footer-ink: #e6fff6;     /* texto claro */
+  --footer-circle: #148865;  /* fundo dos ícones */
+}
+
+.site-footer{
+  background: var(--bg);
+  color: var(--footer-ink);
+  padding: 1rem;
+}
+
+.footer-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.footer-copy{
+  color: var(--footer-ink);
+  opacity: .95;
+  letter-spacing: .2px;
+}
+.footer-copy strong{
+  color: #ffffff;
+}
+
+/* botões sociais redondos */
+.footer-social{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sbtn{
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--footer-ink);
+  background: var(--footer-circle);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.06);
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+}
+.sbtn:hover{
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.14), 0 6px 16px rgba(0,0,0,.18);
+}
+.sbtn:active{
+  transform: translateY(0);
+}
+
+/* Responsivo */
+@media (max-width: 680px){
+  .footer-inner{
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-copy{
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 520px){
+  .footer-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-social{
+    margin-left: -4px;
+  }
+}

@@ -1,0 +1,179 @@
+/* ===== Faixa ===== */
+.gb-promo.v2 {
+    position: relative;
+    overflow: hidden;
+    margin-block: 28px 18px;
+    /* estreita um pouco nas laterais */
+    --promo-gutter: clamp(10px, 2.6vw, 22px);
+    margin-inline: var(--promo-gutter);
+
+    border-radius: 22px;
+    background:
+        radial-gradient(120% 140% at 50% -10%, #ffffff80 0%, #ffffff00 40%),
+        linear-gradient(180deg, var(--sky-50), #f4fbff);
+    border: 1px solid rgba(0, 0, 0, .06);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .10);
+}
+
+/* blob no topo-esquerdo – agora com “pulse” */
+.gb-promo.v2::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    left: -130px;
+    top: -130px;
+    background: radial-gradient(circle at 40% 40%, #56d3bf, var(--mint-500));
+    border-radius: 50%;
+    filter: saturate(1.1);
+    opacity: .9;
+    pointer-events: none;
+    animation: blobPulse 6.5s ease-in-out infinite;
+}
+
+/* arco decorativo girando lentamente */
+.gb-promo-rings {
+    position: absolute;
+    right: -160px;
+    top: -120px;
+    width: 580px;
+    height: 580px;
+    border-radius: 50%;
+    border: 20px solid rgba(82, 107, 124, .32);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(-18deg);
+    pointer-events: none;
+    animation: ringSpin 28s linear infinite;
+}
+
+/* camada da animação */
+.gb-promo-anim {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    /* fica atrás do conteúdo */
+    pointer-events: none;
+    opacity: .85;
+    /* sutil */
+}
+
+/* layout interno */
+.gb-promo-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding-block: clamp(20px, 4vw, 38px);
+    padding-inline: clamp(14px, 3vw, 28px);
+}
+
+/* texto */
+.gb-promo-eyebrow {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-600);
+    background: rgba(83, 105, 119, .12);
+    margin-bottom: 10px;
+}
+
+.gb-promo-text h2 {
+    margin: 0 0 8px;
+    font-size: clamp(26px, 4vw, 46px);
+    line-height: 1.1;
+    color: var(--ink-800);
+    font-weight: 900;
+    letter-spacing: .2px;
+}
+
+.gb-promo-text p {
+    margin: 0;
+    font-size: clamp(14px, 1.9vw, 18px);
+    color: var(--ink-600);
+}
+
+/* ações */
+.gb-promo-ctas {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.gb-promo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-600);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: transform .2s ease;
+}
+
+.gb-promo-link:hover {
+    background: rgba(83, 105, 119, .10);
+    transform: translateY(-1px);
+}
+
+.gb-promo-link .i-arrow {
+    transition: transform .2s ease;
+}
+
+.gb-promo-link:hover .i-arrow {
+    transform: translate(2px, -2px);
+}
+
+/* animações */
+@keyframes blobPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+@keyframes ringSpin {
+    to {
+        transform: rotate(342deg);
+    }
+
+    /* mantém a inclinação base -18deg + 360deg */
+}
+
+/* responsivo */
+@media (max-width: 860px) {
+    .gb-promo-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .gb-promo-ctas {
+        justify-content: center;
+    }
+
+    .gb-promo-rings {
+        right: -220px;
+        top: -180px;
+        width: 520px;
+        height: 520px;
+    }
+}
+
+/* acessibilidade: desliga as animações se o usuário preferir */
+@media (prefers-reduced-motion: reduce) {
+
+    .gb-promo-anim,
+    .gb-promo.v2::before,
+    .gb-promo-rings {
+        animation: none !important;
+    }
+}

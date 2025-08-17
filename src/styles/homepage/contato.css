@@ -1,0 +1,115 @@
+.contato-intro{
+  margin-top: 6px;
+}
+
+.contato-form{
+  margin-top: 12px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.contato-title {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 5vw, 56px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.contato-title .dropcap {
+  color: var(--color-link);
+  margin-right: 2px;
+}
+
+.contato-field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contato-field input,
+.contato-field textarea{
+  border: 1px solid #dfe7e3;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 15px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+/* foco bonito */
+.contato-field input:focus,
+.contato-field textarea:focus{
+  border-color: color-mix(in srgb, var(--accent) 40%, #dfe7e3);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* estados de validação */
+.is-invalid{
+  border-color: #e86e6e !important;
+  box-shadow: 0 0 0 3px rgba(232,110,110,.18) !important;
+}
+.is-valid{
+  border-color: #67c38c;
+}
+
+.field-err{
+  color: #b94b4b;
+  font-size: 13px;
+}
+
+/* contador da textarea */
+.textarea-meta{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: #6b7c75;
+  margin-top: 2px;
+}
+
+.contato-full{ grid-column: 1 / -1; }
+
+.contato-btn{
+  justify-self: start;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  transition: filter .15s ease, transform .15s ease;
+}
+.contato-btn:hover{ filter: brightness(1.05); transform: translateY(-1px); }
+.contato-btn[disabled]{ opacity: .6; cursor: default; transform: none; }
+
+/* toast/status */
+.contato-status{
+  grid-column: 1 / -1;
+  min-height: 0;
+  height: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #0b4a39;
+  background: #e8fff2;
+  border: 1px solid #b6f0cd;
+  border-radius: 10px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  transition: height .25s ease, padding .25s ease, margin-top .25s ease;
+}
+.contato-status.show{
+  height: 40px;
+  padding: 8px 12px;
+  margin-top: 2px;
+}
+
+@media (max-width: 720px){
+  .contato-form{ grid-template-columns: 1fr; }
+}
