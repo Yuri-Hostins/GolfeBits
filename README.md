@@ -5,6 +5,8 @@ Feito em **React + CSS puro**, com animações leves (nuvens, bandeira em SVG, c
 
 ---
 
+
+
 ## ⚙️ Como rodar o projeto
 
 1. Clone o repositório:
@@ -24,6 +26,10 @@ Acesse em:
 ```
 http://localhost:3000
 ```
+
+## 🔗 Demo
+**Live:** https://golfebits.netlify.app
+---
 
 ## 👨‍💼 Autor
 Desenvolvido por Yuri Hostins Raimundo
