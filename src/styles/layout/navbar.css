@@ -181,3 +181,44 @@
     transition: none;
   }
 }
+/* separador ao lado do logo */
+.gb-divider { margin: 0 10px; opacity: .5; color: #e8fff6; }
+
+/* Botão de idioma (bandeira) */
+.gb-langbtn{
+  margin-left: auto;                 /* empurra para a direita */
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--branco, #fff);
+  border: 1px solid #e9efec;
+  color: var(--text, #0b1f18);
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  cursor: pointer;
+  transition: transform .15s ease, filter .15s ease;
+}
+.gb-langbtn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+
+.gb-flag{
+  width: 22px; height: 16px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.gb-langcode{
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .04em;
+  opacity: .7;
+}
+
+/* Em telas pequenas mantém visível e ordena bem com o hambúrguer */
+@media (max-width: 860px){
+  .gb-langbtn{ order: 2; }
+  .gb-menu-btn{ order: 3; }
+  .gb-nav-links{ order: 4; }
+  .gb-brand{ order: 1; }
+}

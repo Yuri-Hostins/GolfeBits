@@ -22,7 +22,9 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -46,4 +48,22 @@ body {
 
 .gb-section-alt {
   background: #ffffff;
+}
+
+.lang-pill {
+  border: 1px solid #e3e7ea;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  cursor: pointer;
+}
+
+.lang-select {
+  border: 1px solid #e3e7ea;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
 }

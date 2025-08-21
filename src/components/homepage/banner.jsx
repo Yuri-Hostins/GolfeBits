@@ -1,59 +1,54 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { useI18n } from "../../i18n/I18nProvider";
+import { DICTS } from "../../i18n/langs"
 
-/** util */
+/** utils */
 const rnd = (min, max) => min + Math.random() * (max - min);
 const uid = () => Math.random().toString(36).slice(2) + Date.now().toString(36);
 
-/** gera uma nuvem */
 function makeCloud({ midFlight = false } = {}) {
-  const duration = rnd(38, 64);             // segundos
-  const topVH = rnd(8, 18);              // altura do céu (vh)
-  const scale = rnd(0.8, 1.35);          // tamanho
-  const delay = midFlight ? -rnd(0, duration * 0.8) : 0; // começa no meio do caminho
-
-  return {
-    id: uid(),
-    duration,
-    topVH,
-    scale,
-    delay,
-  };
+  const duration = rnd(38, 64);
+  const topVH = rnd(8, 18);
+  const scale = rnd(0.8, 1.35);
+  const delay = midFlight ? -rnd(0, duration * 0.8) : 0;
+  return { id: uid(), duration, topVH, scale, delay };
 }
 
 export default function Banner() {
-  /** estado das nuvens */
+  const { lang } = useI18n();
+  const L = DICTS[lang] || DICTS.pt; // fallback seguro
+
   const [clouds, setClouds] = useState(() =>
     Array.from({ length: 5 }, () => makeCloud({ midFlight: true }))
   );
 
-  /** recicla a nuvem que terminou a animação */
   const recycle = (id) =>
     setClouds((prev) => prev.map((c) => (c.id === id ? makeCloud() : c)));
 
-  /** card de boas-vindas (texto e cta) */
+  // strings do hero vindas do dicionário
   const hero = useMemo(
     () => ({
-      title: "Bem-vindo ao GolfeBits",
-      subtitle:
-        "Guia simples e visual sobre golfe: regras, equipamentos, pontuação e muito mais.",
-      ctaLabel: "Explorar conteúdos",
+      title: L.banner.title,
+      subtitle: L.banner.subtitle,
+      ctaLabel: L.banner.cta,
       ctaHref: "#conteudos",
+      sceneLabel: L.banner.a11y.scene,
+      heroLabel: L.banner.a11y.hero
     }),
-    []
+    [L]
   );
 
   useEffect(() => {
-    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduce) return;
     const onScroll = () => {
-      const y = window.scrollY || window.pageYOffset || 0;
-      document.documentElement.style.setProperty('--parallax', String(y));
+      const y = window.scrollY || 0;
+      document.documentElement.style.setProperty("--parallax", String(y));
     };
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
 
   return (
     <section id="banner" className="gb-banner" aria-label="Ambiente do campo (céu, colinas e nuvens)">
@@ -163,11 +158,11 @@ export default function Banner() {
         </svg>
       </div>
 
-      {/* CAMADA DE NUVENS (JS + CSS) */}
+       {/* camada de nuvens (JS) */}
       <div className="gb-cloud-layer" aria-hidden="true">
         {clouds.map((c) => {
-          const depth = Math.min(Math.max((c.topVH - 8) / 10, 0), 1); // 0..1
-          const alpha = 0.95 - depth * 0.30; // 0.65..0.95
+          const depth = Math.min(Math.max((c.topVH - 8) / 10, 0), 1);
+          const alpha = 0.95 - depth * 0.3;
           return (
             <div
               key={c.id}
@@ -187,11 +182,10 @@ export default function Banner() {
             </div>
           );
         })}
-
       </div>
 
-      {/* CARD DE BOAS-VINDAS */}
-      <div className="gb-hero-card" role="dialog" aria-label="Boas-vindas">
+      {/* card de boas-vindas */}
+      <div className="gb-hero-card" role="dialog" aria-label={hero.heroLabel}>
         <h1>{hero.title}</h1>
         <p>{hero.subtitle}</p>
         <a className="gb-cta" href={hero.ctaHref}>{hero.ctaLabel}</a>

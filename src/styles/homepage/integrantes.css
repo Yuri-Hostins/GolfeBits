@@ -1,0 +1,941 @@
+.titulo-banner {
+  font-size: 1.8rem !important;
+}
+
+.hero-section {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.057) !important;
+}
+
+#sobre {
+  background: #fff;
+}
+
+.container-box {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+}
+
+.custom-text-box-image {
+  transition: .2s ease;
+}
+
+.custom-text-box-image:hover {
+  transform: scale(1.1);
+  transition: .2s ease;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .custom-text-box-image {
+    display: none;
+  }
+}
+
+.container-about--title {
+  display: flex;
+  margin-bottom: 8rem;
+}
+
+.about-title {
+  font-size: 7.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+  background: linear-gradient(to bottom,
+      rgba(17, 95, 34, 0.35) 90%,
+      rgb(255 255 255 / 0%) 76%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media screen and (max-width: 900px) {
+  .about-title {
+    font-size: 2rem !important;
+  }
+
+  .container-about--title {
+    margin-bottom: 2rem !important;
+  }
+}
+
+#Container_NomeIntegrante {
+  display: flex;
+  justify-content: center;
+}
+
+#closeModal {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border-radius: 50%;
+  padding: 5px;
+  background: red;
+  border: transparent;
+  text-align: center;
+  transition: .2s ease;
+}
+
+#closeModal:hover {
+  border: 1px solid #000;
+  transition: .2s ease;
+  background-color: #b01313;
+}
+
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 450px;
+  position: relative;
+  perspective: 1000px;
+  margin-top: 80px;
+}
+
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card {
+  position: absolute;
+  width: 280px;
+  height: 380px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card.center {
+  z-index: 10;
+  transform: scale(1.1) translateZ(0);
+}
+
+.card.center img {
+  filter: none;
+}
+
+.card.left-2 {
+  z-index: 1;
+  transform: translateX(-400px) scale(0.8) translateZ(-300px);
+  opacity: 0.7;
+}
+
+.card.left-2 img {
+  filter: grayscale(100%);
+}
+
+.card.left-1 {
+  z-index: 5;
+  transform: translateX(-200px) scale(0.9) translateZ(-100px);
+  opacity: 0.9;
+}
+
+.card.left-1 img {
+  filter: grayscale(100%);
+}
+
+.card.right-1 {
+  z-index: 5;
+  transform: translateX(200px) scale(0.9) translateZ(-100px);
+  opacity: 0.9;
+}
+
+.card.right-1 img {
+  filter: grayscale(100%);
+}
+
+.card.right-2 {
+  z-index: 1;
+  transform: translateX(400px) scale(0.8) translateZ(-300px);
+  opacity: 0.7;
+}
+
+.card.right-2 img {
+  filter: grayscale(100%);
+}
+
+.card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.member-info {
+  text-align: center;
+  margin-top: 40px;
+  transition: all 0.5s ease-out;
+}
+
+.member-name {
+  color: var(--color-link);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.member-name::before,
+.member-name::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 100px;
+  height: 2px;
+  background: var(--color-link);
+}
+
+.member-name::before {
+  left: -120px;
+}
+
+.member-name::after {
+  right: -120px;
+}
+
+.member-role {
+  color: #848696;
+  font-size: 1.5rem;
+  font-weight: 500;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 0;
+  margin-top: -15px;
+  position: relative;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(8, 119, 86, 0.2);;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #087756;
+  transform: scale(1.2);
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-link);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  padding-bottom: 4px;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow.left {
+  left: 20px;
+  padding-right: 3px;
+}
+
+.nav-arrow.right {
+  right: 20px;
+  padding-left: 3px;
+}
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 4.5rem;
+  }
+
+  .card {
+    width: 200px;
+    height: 280px;
+  }
+
+  .card.left-2 {
+    transform: translateX(-250px) scale(0.8) translateZ(-300px);
+  }
+
+  .card.left-1 {
+    transform: translateX(-120px) scale(0.9) translateZ(-100px);
+  }
+
+  .card.right-1 {
+    transform: translateX(120px) scale(0.9) translateZ(-100px);
+  }
+
+  .card.right-2 {
+    transform: translateX(250px) scale(0.8) translateZ(-300px);
+  }
+
+  .member-name {
+    font-size: 1.5rem;
+  }
+
+  .member-role {
+    font-size: 1.2rem;
+  }
+
+  .member-name::before,
+  .member-name::after {
+    width: 50px;
+  }
+
+  .member-name::before {
+    left: -70px;
+  }
+
+  .member-name::after {
+    right: -70px;
+  }
+}
+
+:-moz-focusring {
+  outline: auto
+}
+
+:-moz-ui-invalid {
+  box-shadow: none
+}
+
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit
+}
+
+[hidden]:where(:not([hidden=until-found])) {
+  display: none
+}
+
+.relative {
+  position: relative
+}
+
+.z-10 {
+  /* z-index: 10 */
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem
+}
+
+.-mt-20 {
+  margin-top: -5rem
+}
+
+.ml-4 {
+  margin-left: 1rem
+}
+
+.mt-16 {
+  margin-top: 4rem
+}
+
+.mt-2 {
+  margin-top: 0.5rem
+}
+
+.mt-4 {
+  margin-top: 1rem
+}
+
+.block {
+  display: block
+}
+
+.inline-block {
+  display: inline-block
+}
+
+.flex {
+  display: flex
+}
+
+.hidden {
+  display: none
+}
+
+.h-16 {
+  height: 4rem
+}
+
+.h-8 {
+  height: 2rem
+}
+
+.h-\[140px\] {
+  height: 140px
+}
+
+.h-\[240px\] {
+  height: 240px
+}
+
+.h-full {
+  height: 100%
+}
+
+.w-8 {
+  width: 2rem
+}
+
+.w-\[140px\] {
+  width: 140px
+}
+
+.w-full {
+  width: 100%
+}
+
+.min-w-\[300px\] {
+  min-width: 300px
+}
+
+.min-w-\[358px\] {
+  min-width: 358px
+}
+
+.max-w-4xl {
+  max-width: 56rem
+}
+
+.flex-1 {
+  flex: 1 1 0%
+}
+
+.flex-col {
+  flex-direction: column
+}
+
+.flex-wrap {
+  flex-wrap: wrap
+}
+
+.items-center {
+  align-items: center
+}
+
+.justify-center {
+  justify-content: center
+}
+
+.gap-2 {
+  gap: 0.5rem
+}
+
+.gap-4 {
+  gap: 1rem
+}
+
+.gap-x-10 {
+  column-gap: 2.5rem
+}
+
+.gap-x-16 {
+  column-gap: 4rem
+}
+
+.gap-y-4 {
+  row-gap: 1rem
+}
+
+.gap-y-6 {
+  row-gap: 1.5rem
+}
+
+.overflow-auto {
+  overflow: auto
+}
+
+.overflow-hidden {
+  overflow: hidden
+}
+
+.rounded {
+  border-radius: 0.25rem
+}
+
+.rounded-\[20px\] {
+  border-radius: 20px
+}
+
+.rounded-full {
+  border-radius: 9999px
+}
+
+.border {
+  border-width: 1px
+}
+
+.border-\[\#EAEDF1\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(234 237 241 / var(--tw-border-opacity, 1))
+}
+
+.bg-\[\#F0F7FF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 247 255 / var(--tw-bg-opacity, 1))
+}
+
+.bg-\[\#FBFBFB\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 251 251 / var(--tw-bg-opacity, 1))
+}
+
+.bg-\[\#f3fafd\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 250 253 / var(--tw-bg-opacity, 1))
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+}
+
+.bg-cover {
+  background-size: cover
+}
+
+.bg-center {
+  background-position: center
+}
+
+.object-cover {
+  object-fit: cover
+}
+
+.p-4 {
+  padding: 1rem
+}
+
+.p-\[5px\] {
+  padding: 5px
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem
+}
+
+.text-center {
+  text-align: center
+}
+
+.font-sans {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+.text-\[22px\] {
+  font-size: 22px
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem
+}
+
+.font-medium {
+  font-weight: 500
+}
+
+.font-normal {
+  font-weight: 400
+}
+
+.font-semibold {
+  font-weight: 600
+}
+
+.text-\[\#222324\] {
+  --tw-text-opacity: 1;
+  color: rgb(34 35 36 / var(--tw-text-opacity, 1))
+}
+
+.text-\[\#372803\] {
+  --tw-text-opacity: 1;
+  color: rgb(55 40 3 / var(--tw-text-opacity, 1))
+}
+
+.text-\[\#6F6F70\] {
+  --tw-text-opacity: 1;
+  color: rgb(111 111 112 / var(--tw-text-opacity, 1))
+}
+
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
+.transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms
+}
+
+.hover\:shadow-none:hover {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
+@media (min-width: 768px) {
+  .md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  .md\:inline-block {
+    display: inline-block
+  }
+
+  .md\:hidden {
+    display: none
+  }
+
+  .md\:h-\[170px\] {
+    height: 170px
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start
+  }
+
+  .md\:text-left {
+    text-align: left
+  }
+}
+
+/* Estilos para o contêiner de contato */
+.container-contato {
+  display: flex;
+  /* Define o contêiner como um contêiner flexível */
+  justify-content: center;
+  /* Centraliza o conteúdo horizontalmente dentro do contêiner */
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+}
+
+/* Estilos para os botões de contato */
+.botao-contato {
+  width: 100px;
+  /* Define a largura dos botões como 100 pixels */
+  height: 100px;
+  /* Define a altura dos botões como 100 pixels */
+  background-color: #f6f6f6;
+  /* Define a cor de fundo dos botões como #f6f6f6 (cinza claro) */
+  display: flex;
+  /* Define os botões como contêineres flexíveis */
+  align-items: center;
+  /* Centraliza o conteúdo verticalmente dentro dos botões */
+  justify-content: center;
+  /* Centraliza o conteúdo horizontalmente dentro dos botões */
+  margin-left: 2em;
+  /* Adiciona um espaçamento de 2em (aproximadamente 32 pixels) à esquerda dos botões */
+  margin-right: 1em;
+  /* Adiciona um espaçamento de 1em (aproximadamente 16 pixels) à direita dos botões */
+  cursor: pointer;
+  /* Define o cursor do mouse como um ponteiro quando passa sobre os botões */
+  transition: all 0.3s;
+  /* Adiciona uma transição suave de 0,3 segundos para as propriedades que sofrerem alteração */
+  border-radius: 10px;
+  /* Define o raio das bordas dos botões como 10 pixels, criando um formato arredondado */
+  /* Adiciona um espaçamento de 1.70rem (aproximadamente 27 pixels) abaixo dos botões */
+}
+
+.botao-contato:hover,
+.botao-contato:focus {
+  fill: var(--color-link);
+  transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Estilos para os botões de contato no estado "wh-botao" */
+.botao-contato.wh-botao {
+  box-shadow: 0 20px 20px -17px #128C7E;
+  /* Adiciona uma sombra aos botões com uma cor verde-azulada quando no estado "wh-botao" */
+}
+
+/* Estilos aplicados aos botões de contato no estado "wh-botao" quando o cursor do mouse passa por cima (hover) ou estão em foco (focus) */
+.botao-contato.wh-botao:hover,
+.botao-contato.wh-botao:focus {
+  transform: scale(1.2);
+  /* Aumenta o tamanho dos botões em 20% quando o cursor do mouse passa por cima ou estão em foco */
+  box-shadow: 0 30px 45px -15px #075E54;
+  /* Adiciona uma sombra maior e mais escura quando o cursor do mouse passa por cima ou estão em foco */
+}
+
+/* Estilos para os botões de contato no estado "in-botao" */
+.botao-contato.in-botao {
+  box-shadow: 0 20px 20px -17px #d6249f;
+  /* Adiciona uma sombra aos botões com uma cor rosa quando no estado "in-botao" */
+}
+
+/* Estilos aplicados aos botões de contato no estado "in-botao" quando o cursor do mouse passa por cima (hover) ou estão em foco (focus) */
+.botao-contato.in-botao:hover,
+.botao-contato.in-botao:focus {
+  transform: scale(1.2);
+  /* Aumenta o tamanho dos botões em 20% quando o cursor do mouse passa por cima ou estão em foco */
+  box-shadow: 0 30px 45px -15px #a02d76;
+  /* Adiciona uma sombra maior e mais escura quando o cursor do mouse passa por cima ou estão em foco */
+}
+
+/* Estilos para os botões de contato no estado "gm-botao" */
+.botao-contato.gm-botao {
+  box-shadow: 0 20px 20px -17px rgba(255, 16, 39, 0.5);
+  /* Adiciona uma sombra aos botões com uma cor vermelha quando no estado "gm-botao" */
+}
+
+/* Estilos aplicados aos botões de contato no estado "gm-botao" quando o cursor do mouse passa por cima (hover) ou estão em foco (focus) */
+.botao-contato.gm-botao:hover,
+.botao-contato.gm-botao:focus {
+  transform: scale(1.2);
+  /* Aumenta o tamanho dos botões em 20% quando o cursor do mouse passa por cima ou estão em foco */
+  box-shadow: 0 30px 45px -15px rgba(255, 16, 39, 0.57);
+  /* Adiciona uma sombra maior e mais escura quando o cursor do mouse passa por cima ou estão em foco */
+}
+
+
+.botao-contato.fi-botao {
+  box-shadow: 0 20px 20px -17px rgba(249, 76, 16, 0.502);
+}
+
+.botao-contato.fi-botao:hover,
+.botao-contato.fi-botao:focus {
+  transform: scale(1.2);
+  box-shadow: 0 30px 45px -15px rgba(249, 76, 16, 0.569);
+}
+
+.botao-contato.gq-botao {
+  box-shadow: 0 20px 20px -17px #0087517e;
+}
+
+.botao-contato.gq-botao:hover,
+.botao-contato.gq-botao:focus {
+  transform: scale(1.2);
+  box-shadow: 0 30px 45px -15px #008751;
+}
+
+
+/* Estilos para o texto que aparece quando o ícone está no estado de foco */
+.box-botao:hover .text-botao,
+.box-botao:focus .text-botao {
+  bottom: 6rem;
+  /* Move o texto para baixo, a 6rem (aproximadamente 96 pixels) da posição inicial */
+  visibility: visible;
+  /* Torna o texto visível quando o ícone está no estado de foco */
+  opacity: 1;
+  /* Define a opacidade do texto como 1, tornando-o completamente visível */
+}
+
+/* Setas de texto pop-up */
+.box-botao .text-botao:before {
+  content: '';
+  /* Define o conteúdo do pseudo-elemento como vazio */
+  width: 0;
+  /* Define a largura do pseudo-elemento como 0 */
+  height: 0;
+  /* Define a altura do pseudo-elemento como 0 */
+  border-left: 5px solid transparent;
+  /* Define uma borda esquerda transparente no pseudo-elemento */
+  border-right: 5px solid transparent;
+  /* Define uma borda direita transparente no pseudo-elemento */
+  border-top: 5px solid var(--color-link);
+  /* Define uma borda superior com uma cor rosa no pseudo-elemento */
+  position: absolute;
+  /* Define a posição do pseudo-elemento como absoluta */
+  bottom: -5px;
+  /* Posiciona o pseudo-elemento 5 pixels abaixo da parte inferior do contêiner pai */
+  left: 40px;
+  /* Posiciona o pseudo-elemento a 40 pixels à esquerda do contêiner pai */
+}
+
+/* Estilos para o texto pop-up */
+.box-botao .text-botao {
+  color: #f6f6f6;
+  /* Define a cor do texto como branco */
+  position: absolute;
+  /* Define a posição do texto como absoluta */
+  font-family: sans-serif;
+  /* Define a fonte do texto como uma fonte sans-serif */
+  bottom: 28px;
+  /* Posiciona o texto 28 pixels acima da parte inferior do contêiner pai */
+  left: 50%;
+  /* Centraliza o texto horizontalmente dentro do contêiner pai */
+  transform: translateX(-50%);
+  /* Move o texto horizontalmente para a esquerda em 50% da largura do próprio texto */
+  padding: 5px 7px;
+  /* Adiciona um espaçamento interno de 5 pixels acima/abaixo e 7 pixels à direita/esquerda para o texto */
+  z-index: -10;
+  /* Define a ordem de empilhamento do texto como -10 (coloca-o atrás dos outros elementos) */
+  font-size: 14px;
+  /* Define o tamanho da fonte do texto como 14 pixels */
+  border-radius: 2px;
+  /* Define o raio das bordas do texto como 2 pixels, criando um formato arredondado */
+  background: var(--color-link);
+  /* Define o fundo do texto como uma cor rosa */
+  visibility: hidden;
+  /* Torna o texto inicialmente invisível */
+  opacity: 0;
+  /* Define a opacidade do texto como 0 (completamente transparente) */
+  transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Adiciona uma transição suave de 0,5 segundos com uma curva de aceleração personalizada para as propriedades que sofrerem alteração */
+}
+
+/* Escondendo o modal inicialmente */
+/* O overlay do modal recebe a imagem via CSS var --modal-bg */
+#modalPerfil {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* remove o antigo background-image direto aqui */
+  background: transparent;
+  z-index: 1000;
+}
+
+/* Backdrop: imagem diferente, com blur e escurecida */
+#modalPerfil::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: center / cover no-repeat;
+  background-image: var(--modal-bg);
+  filter: blur(18px) brightness(0.45);
+  transform: scale(1.08); /* evita bordas do blur */
+  z-index: -1;
+}
+
+/* garante que o conteúdo fique acima do backdrop */
+#modalPerfil .modal-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* opcional: um degradê sutil por cima do banner interno */
+.modal-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,0) 40%, rgba(0,0,0,.18));
+  pointer-events: none;
+}
+
+
+#modalPerfil.active {
+  display: flex;
+  /* Para centralizar com flexbox */
+}
+
+#fotodeperfilIntegrante {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+@media (max-width: 700px) {
+  .card {
+    display: none;
+  }
+
+  .card.center {
+    display: block;
+  }
+}
